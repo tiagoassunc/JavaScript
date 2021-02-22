@@ -19,6 +19,11 @@ const johnMass = 92;
 const markTall = 1.69;
 const johnTall = 1.95;
 
+/* const markMass = 95;
+const johnMass = 85;
+const markTall = 1.69;
+const johnTall = 1.76; */
+
 const markBMI = (markMass / (markTall * markTall) ); 
 const jhonBMI = (johnMass / (johnTall * johnTall) );
 const markHigherBMI = markBMI > jhonBMI;
