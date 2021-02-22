@@ -150,3 +150,51 @@ console.log('23' > '18');
 let n = '1' + 1;
 n = n - 1;
 console.log(n); // 10 */
+
+
+/* 
+ PART 09
+// 5 falsy values: 0, '', undefined, null, NaN
+console.log(Boolean(0));
+console.log(Boolean(undefined));
+console.log(Boolean('Tiago'));
+console.log(Boolean({}));
+console.log(Boolean(''));
+
+const money = 100;
+if (money) {
+  console.log("Don't spend it all!");
+} else {
+  console.log('You should get a job!');
+}
+
+let height;
+if (height) {
+  console.log('YAY! Height is defined');
+} else {
+  console.log('Height is UNDEFINED')
+} */
+
+
+/* 
+ PART 10
+const age = '18';
+if(age === 18) console.log('You just became an adult :D (strict)');
+
+if(age == 18) console.log('You just became an adult :D (loose)');
+
+const favourite = Number(prompt("What's your favourite number ?"));
+console.log(favourite);
+console.log(typeof favourite);
+
+if(favourite === 23) { // 23 === 23
+  console.log('Cool! 23 is a amazing number!');
+} else if(favourite === 7) {
+  console.log('7 is also a cool number');
+} else if(favourite === 9) {
+  console.log('9 is also a cool number');
+} else {
+   console.log('Number is not 23 or 7 :(')
+}
+
+if(favourite !== 23) console.log('Why not 23?'); */
