@@ -1,4 +1,6 @@
-/* let js = "amazing";
+/*
+ PART 01 
+let js = "amazing";
 console.log(40 + 8 + 23 - 10);
 console.log("Jonas");
 console.log(23);
@@ -6,7 +8,10 @@ console.log(23);
 let fistName = "Tiago";
 console.log(fistName); */
 
-/* true;
+
+/* 
+ PART 02
+true;
 let javascriptIsFun = true;
 console.log(javascriptIsFun);
 
@@ -18,7 +23,10 @@ console.log(typeof javascriptIsFun);
 javascriptIsFun = "YES!";
 console.log(typeof javascriptIsFun); */
 
-/* const birthYear = 1991;
+
+/* 
+ PART 03
+const birthYear = 1991;
 // birthYear = 1990;
 //const job;
 
@@ -28,7 +36,9 @@ job = "teacher";
 console.log(job) */
 
 
-/* // Math operators
+/* 
+ PART 04
+// Math operators
 const now = 2037;
 const ageJonas = now - 1991;
 const ageSarah = now - 2018;
@@ -57,7 +67,10 @@ const isFullAge = ageSarah >= 18;
 
 console.log(now - 1991 > now - 2018); */
 
-/* const now = 2037;
+
+/* 
+ PART 05
+const now = 2037;
 const ageJonas = now - 1991;
 const ageSarah = now - 2018;
 
@@ -69,3 +82,25 @@ console.log(x,y);
 
 const averageAge = (ageJonas + ageSarah) / 2;
 console.log(ageJonas, ageSarah, averageAge); */
+
+
+/* 
+ PART 06
+const firstName = 'Tiago';
+const job = 'programmer';
+const birthYear = '2001';
+const year = 2037
+
+const tiago = "I'm " + firstName + ', a ' + (year - birthYear) + ' years old ' + job + '!';
+console.log(tiago);
+
+const tiagoNew = `I'm ${firstName}, a ${year - birthYear} years old ${job}!`;
+console.log(tiagoNew)
+
+console.log(`Just a regular string...`);
+
+console.log('String with \n\ multiple \n\ lines');
+
+console.log(`String with
+multiple
+lines`); */
