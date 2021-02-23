@@ -35,7 +35,7 @@ if(dolphinsAverage > koalasAverage && dolphinsAverage >= 100) {
 } else if (koalasAverage > dolphinsAverage && koalasAverage >= 100) {
   console.log(`Koalas Won by ${koalasAverage} average!!! Nice ;D`);
 } else if ((koalasAverage && dolphinsAverage) >= 100 && koalasAverage === dolphinsAverage) {
-  console.log(`Thats a Draw !!! Nice, both of you ;D`);
+  console.log(`Thats a Draw by ${koalasAverage} !!! Nice, both of you ;D`);
 } else {
   console.log("That is no champion :(")
 }
