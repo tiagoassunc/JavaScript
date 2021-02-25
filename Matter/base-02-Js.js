@@ -285,7 +285,51 @@ if (age >= 18) {
 } else {
   drink2 ='water💧';
 }
-
 console.log(drink2)
 
-console.log(`I like to drink ${age>= 18 ? 'wine🍷' : 'water💧'}`); */
+console.log(`I like to drink ${age>= 18 ? 'wine🍷' : 'water💧'}`); // Usin in ${} becouse ternary produce value and if else not, just actions*/
+
+
+/*============================ :D ===================================================================*/
+
+
+'use strict'; //stric mode, mode to avoid bugs
+
+/* 
+ PART 14 - Stric mode
+let hasDriversLicense = false;
+const passTest = true;
+
+if (passTest) hasDriverLicense = true;
+if(hasDriversLicense) console.log('I can drive :D');
+
+//const interface = 'Audio';
+//const private = 534; */
+
+
+
+/* 
+  PART 15 - Functions 01
+// define function
+function logger() {
+  console.log('My name is Tiago');
+}
+
+// calling, running, invoking function
+logger();
+logger();
+logger();
+
+function fruitProcessor(apples, orange) {
+  const juice = `Juice with 🍎${apples} apples and 🍊 ${orange} oranges.`
+  return juice;
+}
+
+const appleJuice = fruitProcessor(5, 0);
+console.log(appleJuice);
+//console.log(fruitProcessor(5, 0));
+
+const fruitJuice = fruitProcessor(2, 4);
+console.log(fruitJuice); */
+
+
