@@ -9,6 +9,7 @@ let fistName = "Tiago";
 console.log(fistName); */
 
 
+
 /* 
  PART 02
 true;
@@ -24,6 +25,7 @@ javascriptIsFun = "YES!";
 console.log(typeof javascriptIsFun); */
 
 
+
 /* 
  PART 03
 const birthYear = 1991;
@@ -34,6 +36,7 @@ const birthYear = 1991;
 var job = "programmer";
 job = "teacher";
 console.log(job) */
+
 
 
 /* 
@@ -68,6 +71,7 @@ const isFullAge = ageSarah >= 18;
 console.log(now - 1991 > now - 2018); */
 
 
+
 /* 
  PART 05
 const now = 2037;
@@ -82,6 +86,7 @@ console.log(x,y);
 
 const averageAge = (ageJonas + ageSarah) / 2;
 console.log(ageJonas, ageSarah, averageAge); */
+
 
 
 /* 
@@ -129,6 +134,7 @@ if(birthYear <= 2000) {
 console.log(century); */
 
 
+
 /* 
  PART 08
 // type conversion
@@ -150,6 +156,7 @@ console.log('23' > '18');
 let n = '1' + 1;
 n = n - 1;
 console.log(n); // 10 */
+
 
 
 /* 
@@ -176,6 +183,7 @@ if (height) {
 } */
 
 
+
 /* 
  PART 10
 const age = '18';
@@ -198,6 +206,7 @@ if(favourite === 23) { // 23 === 23
 }
 
 if(favourite !== 23) console.log('Why not 23?'); */
+
 
 
 /* 
@@ -223,6 +232,7 @@ if(hasDriversLicense && hasGoodVision && !isTired) {
 } else {
   console.log('Some else should drive...')
 } */
+
 
 
 /* 
@@ -268,6 +278,7 @@ if(day === 'monday') {
 } else {
   console.log('Not a valid day');
 } */
+
 
 
 /* 
@@ -333,3 +344,38 @@ const fruitJuice = fruitProcessor(2, 4);
 console.log(fruitJuice); */
 
 
+
+/* 
+  PART 16 Function declaration VS Function expression
+// function declaration (you can call before declare)
+function calcAge1(birthYear) { // (birthYear) = parameter
+  return 2021 - birthYear;
+}
+const age1 = calcAge1(2001); // (2001) = argument
+
+// function expression "anonymous function" (you can't call before declare)
+const calcAge2 = function (birthYear) {
+  return 2021 - birthYear;
+}
+const age2 = calcAge2(2001);
+console.log(age1, age2); */
+
+
+
+/* 
+ PART 17 - Arrow functions
+// Arrow function
+const calcAge3 = birthYear => 2021 - birthYear;
+const age3 = calcAge3(2002)
+console.log(age3);
+
+const yearsUntilRetirement = (birthYear, firstName) => {
+  const age = 2021 - birthYear;
+  const retirement = 65 - age;
+  //return retirement;
+  return `${firstName} retires in ${retirement}`
+}
+
+//console.log(yearsUntilRetirement(prompt("Ano de nascimento"), prompt("Primeiro nome")));
+console.log(yearsUntilRetirement(1991, 'Jonas'));
+console.log(yearsUntilRetirement(1980, 'Bob')); */
