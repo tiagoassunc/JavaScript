@@ -379,3 +379,45 @@ const yearsUntilRetirement = (birthYear, firstName) => {
 //console.log(yearsUntilRetirement(prompt("Ano de nascimento"), prompt("Primeiro nome")));
 console.log(yearsUntilRetirement(1991, 'Jonas'));
 console.log(yearsUntilRetirement(1980, 'Bob')); */
+
+
+
+/* 
+  PART 18 - Functions calling other functions
+function cutFruitPieces(fruit){
+  return fruit * 10;
+}
+
+function fruitProcessor(apples, oranges) {
+  const applePieces =cutFruitPieces(apples);
+  const orangePieces =cutFruitPieces(oranges);
+
+  const juice = `Juice with 🍎${applePieces} pieces of apples and 🍊 ${orangePieces} pieces of oranges.`
+  return juice;
+}
+
+console.log(fruitProcessor(2, 3)); */
+
+
+
+/* 
+  PART 19 - functions review
+const calcAge = function(birthYear) {
+  return 2037 - birthYear;
+}
+
+const yearsUntilRetirement = function (birthYear, firstName) {
+  const age = calcAge(birthYear)
+  const retirement = 65 - age;
+
+  if(retirement > 0) {
+    console.log(`${firstName} retires in ${retirement}`);
+    return retirement;
+  } else {
+    console.log(`${firstName} has already retired 🎈`);
+    return -1;
+  }
+  
+}
+console.log(yearsUntilRetirement(1991, 'Tiago'));
+console.log(yearsUntilRetirement(1970, 'Mike')); */
