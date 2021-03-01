@@ -494,3 +494,40 @@ console.log(ages); */
  if (friends.includes('Steven')) {
    console.log('You have a friend called Steven');
  } */
+
+
+
+/* 
+ PART 22 - Objects, Dot VS Bracket
+const tiago = { // Object literally sintax
+  firstName: 'Tiago',
+  lastName: 'Assunção',
+  age: 2021 - 2001,
+  job: 'Programmer',
+  friends: ['Marcelo', 'Thuz', 'Thales'],
+  girlfriend: 'Vittoria'
+}; // 5 propety firstName, lastName ...
+//console.log(tiago);
+
+console.log(tiago.lastName)
+console.log(tiago['lastName']);
+
+const nameKey = 'Name';
+console.log(tiago['first' + nameKey]);
+console.log(tiago['last' + nameKey]);
+//console.log(tiago.'last' + nameKey); //Don't work XXX
+
+const interestedIn = prompt('What do you want to know about Tiago ? Choose between firstName, lastName, age, job, friends and girlfriend');
+
+if(tiago[interestedIn]) {
+  console.log(tiago[interestedIn]);
+} else {
+  console.log('Wrong request! Choose between firstName, lastName, age, job, friends and girlfriend')
+}
+
+tiago.location = 'Brasil';
+tiago['twitter'] = '@asnammusa';
+console.log(tiago);
+
+
+console.log(`${tiago['firstName']} has ${tiago.friends.length} friends, and his best friend is called ${tiago.friends[0]}`); */
