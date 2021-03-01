@@ -575,4 +575,4 @@ console.log(tiago.age);
 console.log(tiago.age);
 console.log(tiago.age);
 
-console.log(tiago.getSummary()) */
+console.log(tiago.getSummary()) */ 
