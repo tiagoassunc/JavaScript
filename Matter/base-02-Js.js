@@ -463,6 +463,8 @@ console.log(ages); */
 
 
 
+/* 
+  PART 21 - Basic array operations
 // Add elements
  const friends = ['Michael', 'Steven', 'Peter'];
  const newLength = friends.push('Tiago');
@@ -491,4 +493,4 @@ console.log(ages); */
 
  if (friends.includes('Steven')) {
    console.log('You have a friend called Steven');
- }
+ } */
