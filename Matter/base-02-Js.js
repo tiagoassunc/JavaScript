@@ -531,3 +531,48 @@ console.log(tiago);
 
 
 console.log(`${tiago['firstName']} has ${tiago.friends.length} friends, and his best friend is called ${tiago.friends[0]}`); */
+
+
+
+/* 
+  PART 23 - Object Methods
+  const tiago = {
+  firstName: 'Tiago',
+  lastName: 'Assunção',
+  birthYear: 2001,
+  job: 'Programmer',
+  friends: ['Marcelo', 'Thuz', 'Thales'],
+  girlfriend: 'Vittoria',
+  hasDriversLicense: true,
+
+   //calcAge: function(birthYear) { // Function attached to an object is called method
+   // return 2021 - birthYear;
+  //} 
+
+   //calcAge: function() {
+    // console.log(this);
+    //return 2021 - this.birthYear;
+  //} 
+
+  //calcAge: function() {
+    //this.age = 2021 - this.birthYear;
+    //return this.age;
+  //},
+
+  getSummary: function() {
+   /*  if(this.age >= 18) {
+      return `${tiago.firstName + ' ' + tiago.lastName} is a ${tiago.age}-years old ${tiago.job}, and he has a driver's license ✅ 🚗`;
+    } else {
+      return `${tiago.firstName + ' ' + tiago.lastName} is a ${tiago.age}-years old ${tiago.job}, and he has not a driver's license ❌ 🚗`;
+    } 
+    return `${tiago.firstName + ' ' + tiago.lastName} is a ${tiago.age}-years old ${tiago.job}, and he has ${this.hasDriversLicense ? 'a ✅' : 'no ❌'} driver's license 🚗`;
+  }
+}; 
+
+console.log(tiago.calcAge());
+
+console.log(tiago.age);
+console.log(tiago.age);
+console.log(tiago.age);
+
+console.log(tiago.getSummary()) */
