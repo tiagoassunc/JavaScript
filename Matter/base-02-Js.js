@@ -576,3 +576,65 @@ console.log(tiago.age);
 console.log(tiago.age);
 
 console.log(tiago.getSummary()) */ 
+
+
+
+/* 
+  PART 24 - Loops, looping arrays, break and continue
+console.log('Lifting weights repetition 1 🏋🏾‍♂️ ');
+console.log('Lifting weights repetition 2 🏋🏾‍♂️ ');
+console.log('Lifting weights repetition 3 🏋🏾‍♂️ ');
+console.log('Lifting weights repetition 4 🏋🏾‍♂️ ');
+console.log('Lifting weights repetition 5 🏋🏾‍♂️ ');
+
+// for loop keeps running while condition is TRUE
+for(let rep = 1; rep <= 10; rep++) {
+  console.log(`Lifting weights repetition ${rep} 🏋🏾‍♂️ `);
+}
+
+
+
+const tiago = [
+  'Tiago',
+  'Assunção',
+  2021 - 2001,
+  'Programmer',
+  ['Marcelo', 'Thuz', 'Thales'],
+  true
+]; 
+
+const types = [];
+
+for(let i = 0; i < tiago.length; i++) {
+  // Reading for tiago array
+  console.log(tiago[i], typeof tiago[i]);
+
+  // Filling types array
+  //types[i] = typeof tiago[i];
+  types.push(typeof tiago[i]);
+}
+
+console.log(types)
+
+const years = [1991, 2007, 1969, 2020];
+const ages = []; 
+
+for(let i = 0; i < years.length; i++) {
+  ages.push(2021 - years[i])
+}
+console.log(years, ages)
+
+// Continue and Break
+console.log('--- ONLY STRING ---');
+for(let i = 0; i < tiago.length; i++) {
+  if(typeof tiago[i] !== 'string') continue;
+  
+  console.log(tiago[i], typeof tiago[i]);
+}
+
+console.log('--- BREAK WITH NUMBER ---');
+for(let i = 0; i < tiago.length; i++) {
+  if(typeof tiago[i] === 'number') break;
+  
+  console.log(tiago[i], typeof tiago[i]);
+} */
