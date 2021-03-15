@@ -1,1 +1,36 @@
 'use strict';
+
+function calcAge(birthYear) {
+  const age = 2037 - birthYear;
+  // console.log(firstName); // Global variable - Did Variable lookup
+
+  function printAge() {
+    let output = `${firstName}, you are ${age}, born in ${birthYear}`; // Work with scope chain
+    console.log(output);
+
+    if (birthYear >= 1981 && birthYear <= 1996) {
+      var millenial = true;
+      const firstName = 'Michael'; // Creating a new variable, because it is in another scope, with same name alredy used
+      const str = `Oh, and you're a millenial, ${firstName}`;
+      console.log(str);
+
+      function add(a, b) {
+        return a + b;
+      }
+
+      output = 'NEW OUTPUT!'; // change of output's variable value, no problem
+    }
+    // console.log(str); // Impossible to acess with scope chain
+    console.log(millenial); // Work beacuse variables declared com var (< ES6) can be use in all function - function scope
+    // add(2, 3); // Can be use only in block scope defined - IF "strict mode" is defined
+    console.log(output);
+  }
+  printAge();
+
+  return age;
+}
+
+const firstName = 'jonas';
+calcAge(1991); // Function called after 'firstName' was declared, so it's okay
+// console.log(age); // Impossible to acess with scope chain
+// printAge();// Impossible to acess with scope chain
