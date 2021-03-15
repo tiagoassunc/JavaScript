@@ -1,5 +1,7 @@
 'use strict';
 
+/*=================== Scope and socpe chain ===================================*/
+
 function calcAge(birthYear) {
   const age = 2037 - birthYear;
   // console.log(firstName); // Global variable - Did Variable lookup
@@ -34,3 +36,47 @@ const firstName = 'jonas';
 calcAge(1991); // Function called after 'firstName' was declared, so it's okay
 // console.log(age); // Impossible to acess with scope chain
 // printAge();// Impossible to acess with scope chain
+
+/*========================= Hoisting and TDZ ===================================*/
+
+// -Variables
+console.log(me);
+// console.log(job);
+// console.log(year);
+
+var me = 'Jonas';
+let job = 'teacher';
+const year = 1991;
+
+// - Functions
+console.log(addDelc(2, 3));
+// console.log(addExpr(2, 3)); // Not work
+// console.log(addArrow(2, 3)); // Not work
+
+function addDelc(a, b) {
+  return a + b;
+}
+
+var addExpr = function (a, b) {
+  return a + b;
+};
+
+const addArrow = (a, b) => a + b;
+
+// Example
+// console.log(numProducts); // var defined after function called = undefined
+if (!numProducts) deleteShoppingCart();
+
+var numProducts = 10;
+
+function deleteShoppingCart() {
+  console.log('All products deleted!');
+}
+
+var x = 1;
+let y = 2;
+const z = 3;
+
+console.log(x === window.x);
+console.log(y === window.y);
+console.log(z === window.z);
