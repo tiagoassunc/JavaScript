@@ -187,3 +187,40 @@ const friend = me;
 friend.age = 27; // storied in heap, so change the object value
 console.table('Friend:', friend); // age 27
 console.table('Me:', me); // age 27 */
+
+/* ===================================================================== */
+
+/* // Primitive types
+let lastName = 'Williams';
+let oldLastName = lastName;
+lastName = 'Davis';
+console.log(lastName, oldLastName);
+
+// Refernece types
+const jessica = {
+  firsName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+};
+const marriedJessica = jessica;
+marriedJessica.lastName = 'Davis';
+console.log('Before marriage', jessica);
+console.log('After marriage', marriedJessica);
+// marriedJessica = {} // Do not work because u changing de path object
+
+//Copying objects
+const jessica2 = {
+  firsName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+  family: ['Alice', 'Bob'],
+};
+
+const jessicaCopy = Object.assign({}, jessica2); // Creating a new object merged jessica and {} with same variables
+jessicaCopy.lastName = 'Davis'; // Changing lastName variable of the new object
+
+jessicaCopy.family.push('Mary'); // Pushed in both objects even thoug it was pushed just in jessicaCopy
+jessicaCopy.family.push('Jhon');
+
+console.log('Before marriage', jessica2);
+console.log('After marriage', jessicaCopy); */
