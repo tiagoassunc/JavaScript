@@ -169,3 +169,21 @@ const addArrow = (a, b) => {
 };
 
 addExpr(2, 5, 8); */
+
+/*========================= Regular VS arrow functions===================================*/
+
+/* let age = 30; // Primitive (boolean, number, string)
+let oldAge = age;
+age = 31; // Stored in call stack, so creat another adress value
+console.log(age);
+console.log(oldAge);
+
+const me = {
+  // Consts are only imutable for primitive values, not reference values (like object, functions)
+  name: 'Jonas',
+  age: 30,
+};
+const friend = me;
+friend.age = 27; // storied in heap, so change the object value
+console.table('Friend:', friend); // age 27
+console.table('Me:', me); // age 27 */
