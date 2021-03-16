@@ -115,3 +115,57 @@ matilda.calcAge(); // Point to matilda that is the object calling the method
 
 const f = jonas.calcAge; // Possible to do cause function is a value
 f(); // do not work because no one is calling, is just a regular function = undefined, undefined.year = error */
+
+/*========================= Regular VS arrow functions===================================*/
+
+/* // var firstName = 'Matilda'; // variables declared with var create properties on the global object
+
+const jonas = {
+  // This is a Object literal, != code block, so do not have your own scope
+  firstName: 'Jonas',
+  year: 1991,
+  calcAge: function () {
+    // console.log(this);
+    console.log(2037 - this.year);
+
+    // Solution 1
+    //const self = this; //  self or that, to use a variable as this
+    //const isMillenial = function () {
+    //console.log(self);
+    //console.log(self.year >= 1981 && self.year <= 1996);
+    // //console.log(this.year >= 1981 && this.year <= 1996); // ///Undefined because is a regular function even though it's /////inside a method
+    //};
+
+    // Solution 2
+    const isMillenial = () => {
+      // Work because arrow function use this of parent, in this case calcAge so this = jonas
+      console.log(this);
+      console.log(this.year >= 1981 && this.year <= 1996);
+    };
+
+    isMillenial();
+  },
+
+  greet: () => {
+    console.log(this);
+    console.log(`Hey ${this.firstName}`);
+  },
+};
+jonas.greet(); // = Hey Matilda
+jonas.calcAge();
+
+// arguments keyword
+const addExpr = function (a, b) {
+  // Just exist in regular functions
+  console.log(arguments);
+  return a + b;
+};
+addExpr(2, 5);
+addExpr(2, 5, 8, 12);
+
+const addArrow = (a, b) => {
+  console.log(arguments);
+  return a + b;
+};
+
+addExpr(2, 5, 8); */
