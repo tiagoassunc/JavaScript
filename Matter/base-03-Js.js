@@ -36,10 +36,65 @@ const restaurant = {
       `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${addres} at ${time}`
     );
   },
+
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`Here is your delicius pasta with ${ing1}, ${ing2}, ${ing3}`);
+  },
 };
 
+/*========================== The Spred Operator  ====================================================*/
+
+// Similar with destructuring, simple way to use arrays and objects data outside them, but we do not creat new variables
+
+const arr = [7, 8, 9]; // Adding new elements at arr begin
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
+
+const newArr = [1, 2, ...arr]; // Spred take all the values of arr and rite them individualy - Without '...' = [1, 2, Array(3)]
+console.log(newArr);
+
+console.log(...newArr); // Turn elements individuals
+console.log(1, 2, 7, 8, 9);
+
+const newMenu = [...restaurant.mainMenu, 'Gnocci']; // Adding new ar with main menu and other Strings
+console.log(newMenu);
+
+// Copy array
+const mainMenuCopy = [...restaurant.mainMenu];
+// Join 2 arrays
+const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(menu);
+
+// Works in all ITERABLES,: arrays, strings, maps sets. NOT objects
+const str = 'Silvia';
+const letters = [`${str}'s letters`, ...str, '', 'S.'];
+console.log(letters);
+console.log(...str);
+// console.log(`${...str} Assunção`); // Do not work, multiple values separed by a "," are only expected on build arrays and pass arguments in functions
+
+// Scapes = "\'" = ' - Ex: 'Don\' do this'
+// Real word example
+const ingredients = [
+  //prompt("Lets's make pasta! Ingredient 1?"),
+  //prompt("Lets's make pasta! Ingredient 2?"),
+  //prompt("Lets's make pasta! Ingredient 3?"),
+];
+console.log(ingredients);
+
+restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]);
+restaurant.orderPasta(...ingredients);
+
+// Objects
+const newRestaurant = { foundedIn: 1998, ...restaurant, founder: 'Guiseppe' }; // Copy end adding things in objects
+console.table(newRestaurant);
+
+const restaurantCopy = { ...restaurant };
+restaurant.name = 'Ristorante Roma';
+console.log(restaurantCopy);
+console.log(restaurant.name);
+
 /*========================== Destructuring Objects ====================================================*/
-restaurant.orderDelivery({
+/* restaurant.orderDelivery({
   time: '22:30',
   addres: 'Via del Sole, 21',
   mainIndex: 2,
@@ -78,7 +133,7 @@ console.log(a, b); // 23  7
 const {
   fri: { open: o, close: c },
 } = openingHours;
-console.log(o, c);
+console.log(o, c); */
 
 /*========================== Destructuring Arrays ====================================================*/
 
