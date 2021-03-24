@@ -44,7 +44,7 @@ const restaurant = {
 
 /*========================== The Spred Operator  ====================================================*/
 
-// Similar with destructuring, simple way to use arrays and objects data outside them, but we do not creat new variables
+/* // Similar with destructuring, simple way to use arrays and objects data outside them, but we do not creat new variables
 
 const arr = [7, 8, 9]; // Adding new elements at arr begin
 const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
@@ -91,7 +91,7 @@ console.table(newRestaurant);
 const restaurantCopy = { ...restaurant };
 restaurant.name = 'Ristorante Roma';
 console.log(restaurantCopy);
-console.log(restaurant.name);
+console.log(restaurant.name); */
 
 /*========================== Destructuring Objects ====================================================*/
 /* restaurant.orderDelivery({
