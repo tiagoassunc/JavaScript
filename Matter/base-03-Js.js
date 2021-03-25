@@ -47,6 +47,17 @@ const restaurant = {
   },
 };
 
+/*========================== The Nulish Coalescing Operator (??) ====================================================*/
+
+/* // Work in a wrong way because 0 is a false value
+restaurant.numGuests = 0;
+const guests = restaurant.numGuests || 10;
+console.log(guests);
+
+// Work correctly showing 0, because (??) Nullish: null and undefined, (NOT 0 an '')
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect); */
+
 /*========================== Short Circuiting (&& and ||) ====================================================*/
 /* console.log('----- OR ------');
 // Use ANY data type, return ANY data type, short-circuiting (return the first true value || the last false value)
