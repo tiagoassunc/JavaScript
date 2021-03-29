@@ -46,7 +46,7 @@ const restaurant = {
     console.log(otherIngridients);
   },
 };
-
+restaurant.orderPizza('carne', 'frango', 'molho');
 /*========================== The Nulish Coalescing Operator (??) ====================================================*/
 
 /* // Work in a wrong way because 0 is a false value
