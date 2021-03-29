@@ -113,4 +113,4 @@ printGoals(...game.scored);
 // Short Circuiting
 team1 < team2 && console.log('Team 1 is more likely to win');
 console.log('----- 7) -----');
-team2 > team2 && console.log('Team 1 is more likely to win');
+team2 > team2 && console.log('Team 2 is more likely to win');
