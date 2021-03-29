@@ -46,7 +46,19 @@ const restaurant = {
     console.log(otherIngridients);
   },
 };
-restaurant.orderPizza('carne', 'frango', 'molho');
+
+/*========================== Looping Arrays (The for-of loop) ====================================================*/
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menu) console.log(item);
+
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1}: ${el}`);
+}
+
+//console.log([...menu.entries()]);
+
 /*========================== The Nulish Coalescing Operator (??) ====================================================*/
 
 /* // Work in a wrong way because 0 is a false value
