@@ -54,9 +54,35 @@ const restaurant = {
   },
 };
 
+/*========================== Looping Objects , Keys, Values Entries====================================================*/
+// Property NAMES
+const properties = Object.keys(openingHours);
+console.log(properties);
+
+let openStr = `We are open on ${properties.length} days :`;
+
+for (const day of properties) {
+  openStr += `${day},`;
+}
+
+console.log(openStr);
+
+// Property VALUES
+const values = Object.values(openingHours);
+console.log(values);
+
+// Property ENTRIES - Entire object
+const entries = Object.entries(openingHours);
+console.log(entries);
+
+// Destructuring in a loop, using keys and value
+for (const [key, { open, close }] of entries) {
+  console.log(`On ${key} we open at ${open} and close at ${close}`);
+}
+
 /*========================== Optional Chaining (?.) ====================================================*/
 
-// IF EXISTS
+/* // IF EXISTS
 if (restaurant.openingHours && restaurant.openingHours.mon)
   console.log(restaurant.openingHours.mon);
 //console.log(restaurant.openingHours.mon.open);
@@ -80,7 +106,7 @@ console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exists');
 // Arrays
 const user = [{ name: 'Jonas', email: 'hello@jonas.io' }];
 //const user = [];
-console.log(user[0]?.name ?? 'User array empty');
+console.log(user[0]?.name ?? 'User array empty'); */
 
 /*========================== Looping Arrays (The for-of loop) ====================================================*/
 
