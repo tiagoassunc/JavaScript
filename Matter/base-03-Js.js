@@ -1,32 +1,38 @@
 'use strict';
 
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+const openingHours = {
+  [weekdays[3]]: {
+    open: 12,
+    close: 22,
+  },
+  [weekdays[4]]: {
+    open: 11,
+    close: 23,
+  },
+  [weekdays[5]]: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
+
 const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
 
-  order: function (StarterIndex, mainIndex) {
+  //ES6 enhanced object literals
+  openingHours,
+
+  // Better sintax of functions in object literals
+  order(StarterIndex, mainIndex) {
     // Give the object as an single argument, and destructuring in 'function ()' - the order is not important
     return [this.starterMenu[StarterIndex], this.mainMenu[mainIndex]];
   },
 
-  orderDelivery: function ({
+  orderDelivery({
     starterIndex = 1, // '=1' default value
     mainIndex = 0,
     time = '20:00',
@@ -37,6 +43,7 @@ const restaurant = {
     );
   },
 
+  // Usual function in object
   orderPasta: function (ing1, ing2, ing3) {
     console.log(`Here is your delicius pasta with ${ing1}, ${ing2}, ${ing3}`);
   },
@@ -46,10 +53,12 @@ const restaurant = {
     console.log(otherIngridients);
   },
 };
+console.log(restaurant.openingHours);
+/*========================== Enhanced Object Literals ====================================================*/
 
 /*========================== Looping Arrays (The for-of loop) ====================================================*/
 
-const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+/* const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
 for (const item of menu) console.log(item);
 
@@ -57,7 +66,7 @@ for (const [i, el] of menu.entries()) {
   console.log(`${i + 1}: ${el}`);
 }
 
-//console.log([...menu.entries()]);
+//console.log([...menu.entries()]); */
 
 /*========================== The Nulish Coalescing Operator (??) ====================================================*/
 
