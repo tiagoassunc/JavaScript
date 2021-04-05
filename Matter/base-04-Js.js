@@ -54,9 +54,23 @@ const restaurant = {
   },
 };
 
+/*========================== Which Data Structure to use ???  ====================================================*/
+
+// Sources of Data: [1, From the program itself (Status mesages)] [2, From the UI (From web page - input or from DOM)] [3, From external sources (API)]
+// We use data structure to collect Data - We have 4 to decide
+// 1) Simple list = Array or Sets - Just values whithout description
+// 2) Key/Values pairs - We have a way to describe values
+// Most commun source API, come in JSON, can be convert - we use keys so thats why it's comes in objects
+// Arrays VS. Sets :
+// Arrays: when need to store values in order and this values might contain duplicade, manipulate dat
+// Sets: only be use when working with unique values, when high performance is really important, remove duplicate values from arrays
+// Objects VS. Maps
+//Objects: traditional, easy to write and acess data - So if need functions as values(methods) and use this key word, use to work with JSON
+//Maps: better performace, any data type - So when simple need to map keys with values and keys that are not strings
+
 /*========================== Maps: Interation ====================================================*/
 
-const question = new Map([
+/* const question = new Map([
   //arr of arrs
   ['question', 'What is the best programming language in the word?'],
   [1, 'c'],
@@ -86,15 +100,15 @@ console.log(answer);
 
 console.log(question.get(question.get('correct') === answer)); // cl(question.get(boolean))
 
-/* answer === question.get('correct')
-  ? console.log(question.get(true))
-  : console.log(question.get(false));
- */
+  // answer === question.get('correct')
+  //? console.log(question.get(true))
+  //: console.log(question.get(false)); // Made in my way
+ 
 // Convert map to arrar
 console.log([...question]);
 console.log(question.entries());
 console.log(...question.keys());
-console.log(question.values());
+console.log(question.values()); */
 
 /*========================== Maps ====================================================*/
 /* // Like Objects, but key can be any type( String, Number even other maps)
