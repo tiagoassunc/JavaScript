@@ -54,8 +54,50 @@ const restaurant = {
   },
 };
 
+/*========================== Maps: Interation ====================================================*/
+
+const question = new Map([
+  //arr of arrs
+  ['question', 'What is the best programming language in the word?'],
+  [1, 'c'],
+  [2, 'Java'],
+  [3, 'JavaScript'],
+  ['correct', 3],
+  [true, 'Correct 🎉'],
+  [false, 'Try again :('],
+]);
+
+console.log(question); // Work like Object.entries, so we can conver object to maps
+
+// Convert Object to map
+console.log(Object.entries(openingHours));
+const hourMap = new Map(Object.entries(openingHours)); // Objects are not iterable so use .entries to convert
+console.log(hourMap);
+
+// QUIZ APP
+// Using for loop because maps are iterables
+console.log(question.get('question'));
+for (const [key, value] of question) {
+  if (typeof key === 'number') console.log(`Answer ${key}: ${value}`); // if type of key iqual number
+}
+//const answer = Number(prompt('Your answer'));
+const answer = 3;
+console.log(answer);
+
+console.log(question.get(question.get('correct') === answer)); // cl(question.get(boolean))
+
+/* answer === question.get('correct')
+  ? console.log(question.get(true))
+  : console.log(question.get(false));
+ */
+// Convert map to arrar
+console.log([...question]);
+console.log(question.entries());
+console.log(...question.keys());
+console.log(question.values());
+
 /*========================== Maps ====================================================*/
-// Like Objects, but key can be any type( String, Number even other maps)
+/* // Like Objects, but key can be any type( String, Number even other maps)
 // (key, value)
 key: 'Categories';
 value: (4)[('Italian', 'Pizzeria', 'Vegetarian', 'Organic')];
@@ -87,7 +129,7 @@ rest.set(document.querySelector('h1'), 'Heading'); // We can use Oject as map ke
 console.log(rest);
 console.log(rest.size);
 
-console.log(rest.get(arr));
+console.log(rest.get(arr)); */
 
 /*========================== Sets ====================================================*/
 /* const ordersSet = new Set([
