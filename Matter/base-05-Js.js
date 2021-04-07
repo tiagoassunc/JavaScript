@@ -1,6 +1,8 @@
 'use strict';
 
-const airline = 'TAP air Portugal';
+/*========================== Strings Part 1  ====================================================*/
+
+/* const airline = 'TAP air Portugal';
 const plane = 'A320';
 
 console.log(plane[0]);
@@ -40,3 +42,4 @@ checkMiddleSeat('3E'); // Works because Js convert that string primitive to stri
 console.log(new String('jonas')); // Object
 console.log(typeof new String('jonas'));
 console.log(typeof new String('jonas').slice(1)); // Turns back to string
+ */
