@@ -1,5 +1,66 @@
 'use strict';
 
+/*========================== Strings Part 2  ====================================================*/
+
+const airline = 'TAP Air Portugal';
+console.log(airline.toLowerCase()); // Lowercase
+console.log(airline.toLocaleUpperCase()); // Uppercase
+
+// Fix capitalization in name
+const passenger = 'jOnAs'; // Jonas
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect =
+  passengerLower[0].toLocaleUpperCase() + passengerLower.slice(1);
+console.log(passengerCorrect);
+
+// Comparing Email
+const email = 'hello@jonas.io';
+const loginEmail = '  Hello@Jonas.Io \n';
+
+//const lowerEmail = loginEmail.toLocaleLowerCase();
+//const trimmedEmail = lowerEmail.trim(); // Remove espaces, have trim start and trim end
+//console.log(trimmedEmail);
+
+// In one step
+const normalizedEmail = loginEmail.toLocaleLowerCase().trim();
+console.log(normalizedEmail);
+console.log(email === normalizedEmail);
+
+//Replacing
+const priceGB = '288,97£';
+const priceUS = priceGB.replace('£', '$').replace(',', '.'); // Replace
+console.log(priceUS);
+
+const announcement =
+  'All passengers come to boarding door 23. Boarding door 23!';
+
+console.log(announcement.replace('door', 'gate')); // Just replace the first
+console.log(announcement.replaceAll('door', 'gate')); // Replace All
+// OR
+console.log(announcement.replace(/door/g, 'gate')); // /door/g = global
+
+//Booleans
+const plane = 'Airbus A320neo';
+console.log(plane.includes('A320')); // Methods similar to arrays
+console.log(plane.includes('Boeing')); // If contains
+console.log(plane.startsWith('Air')); // Start with
+
+if (plane.startsWith('Airbus') && plane.endsWith('neo'))
+  console.log('Part of the NEW Airbus family'); // Good at decisions made based on the string content
+
+// Practice exercise - Checking baggage
+const checkBaggage = function (items) {
+  const baggage = items.toLowerCase();
+  if (baggage.includes('knife') || baggage.includes('gun')) {
+    console.log('You are NOT allowed on board');
+  } else {
+    console.log('Welcome aboard!');
+  }
+};
+checkBaggage('I have a laptop, some Food and a pocket Knife');
+checkBaggage('Socks and camera');
+checkBaggage('Got some snacks and a gun for protection');
+
 /*========================== Strings Part 1  ====================================================*/
 
 /* const airline = 'TAP air Portugal';
