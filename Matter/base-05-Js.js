@@ -1,8 +1,55 @@
 'use strict';
 
+/*========================== Strings Part 3 ====================================================*/
+// Split and Join
+console.log('a+very+nice+string'.split('+')); // Split string
+console.log('Tiago Assunção'.split(' '));
+
+const [firstName, lastName] = 'Tiago Assunção'.split(' ');
+
+console.log(['Mr.', firstName, lastName.toUpperCase()].join(' ')); // Join strings
+
+const capitalizeName = function (name) {
+  const names = name.split(' ');
+  const namesUpper = [];
+
+  for (const n of names) {
+    // namesUpper.push(n[0].toUpperCase() + n.slice(1)); - one way uppercasing te first letter + rest of the word
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase())); // Replacing first letter for first letter uppercased
+  }
+  console.log(namesUpper.join(' '));
+};
+
+capitalizeName('Jessica ann smith davis');
+capitalizeName('tiago assunção');
+
+// Padding
+const message = 'Go to gate 23!';
+console.log(message.padStart(25, '+').padEnd(35, '+')); // (Length we want to the string, with what we want to complete padding)
+
+// Masking credit card
+const maskCreditCard = function (number) {
+  const str = String(number);
+  const last = str.slice(-4);
+  return last.padStart(str.length, '*');
+};
+console.log(maskCreditCard(21873987489));
+console.log(maskCreditCard('832048471768216382'));
+
+// Repeat
+const message2 = 'Bad weather... All Departues Deplayed...';
+console.log(message2.repeat(10));
+
+const planeInLines = function (n) {
+  console.log(`Thera are ${n} planes in line ${'✈️'.repeat(n)}`);
+};
+planeInLines(5);
+planeInLines(3);
+planeInLines(12);
+
 /*========================== Strings Part 2  ====================================================*/
 
-const airline = 'TAP Air Portugal';
+/* const airline = 'TAP Air Portugal';
 console.log(airline.toLowerCase()); // Lowercase
 console.log(airline.toLocaleUpperCase()); // Uppercase
 
@@ -59,7 +106,7 @@ const checkBaggage = function (items) {
 };
 checkBaggage('I have a laptop, some Food and a pocket Knife');
 checkBaggage('Socks and camera');
-checkBaggage('Got some snacks and a gun for protection');
+checkBaggage('Got some snacks and a gun for protection'); */
 
 /*========================== Strings Part 1  ====================================================*/
 
