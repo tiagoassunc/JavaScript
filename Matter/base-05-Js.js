@@ -1,7 +1,38 @@
 'use strict';
 
+/* ================================_______________________ fUNCTIONS PART __________________________================================== */
+
+/*========================== Default parameters ====================================================*/
+
+const bookings = [];
+
+const creatBooking = function (
+  flightNum,
+  numPassengers = 1,
+  price = 199 * numPassengers //to do this must be after numPassengers
+) {
+  // ES6 default way ^
+  // ES5 Old way to get default values
+  //numPassengers = numPassengers || 1; // Using or operator working with boleans
+  //price = price || 199;
+
+  const booking = {
+    flightNum, // = to (flightNum = fligthNum)
+    numPassengers,
+    price,
+  };
+  console.log(booking);
+  bookings.push(bookings);
+};
+creatBooking('LH123');
+creatBooking('TA445', 2, 800);
+creatBooking('TH8585', 2);
+creatBooking('FR234', undefined, 1000); // Use undefined to set to default value, skip paramether
+
+/* ================================_______________________ STRINGS PART __________________________================================== */
+
 /*========================== Strings Part 3 ====================================================*/
-// Split and Join
+/* // Split and Join
 console.log('a+very+nice+string'.split('+')); // Split string
 console.log('Tiago Assunção'.split(' '));
 
@@ -45,7 +76,7 @@ const planeInLines = function (n) {
 };
 planeInLines(5);
 planeInLines(3);
-planeInLines(12);
+planeInLines(12); */
 
 /*========================== Strings Part 2  ====================================================*/
 
