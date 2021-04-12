@@ -2,9 +2,39 @@
 
 /* ================================_______________________ fUNCTIONS PART __________________________================================== */
 
-/*========================== Default parameters ====================================================*/
+/*========================== How Passing Arguments Works: Value vs. Reference ====================================================*/
 
-const bookings = [];
+const flight = 'LH234'; // Primitive type (String)
+const tiago = {
+  // Reference type (Object)
+  name: 'Tiago Assunção',
+  passport: 5434241412998,
+};
+const checkIn = function (flightNum, passenger) {
+  flightNum = 'LH999';
+  passenger.name = 'Mr.' + passenger.name;
+
+  if (passenger.passport === 5434241412998) {
+    alert('Check in');
+  } else alert('Wrong passport!');
+};
+// checkIn(flight, tiago);
+// console.log(flight);
+// console.log(tiago);
+
+// Is the same as doig...
+// const flightNum = flight; // Creat another variable that is a copy pf flight variable so we just change the copy, not the flight variable
+// const passenger = tiago; // Reference copy the path/way/reference of object, so affects the object, in this case tiago
+
+const newPassaport = function (person) {
+  person.passport = Math.trunc(Math.random() * 1000000000000);
+};
+newPassaport(tiago); // Changing tiago passport
+checkIn(flight, tiago); // Alert wrong passport, cause we have a new tiago.passport now
+
+/*========================== Functions default parameters ====================================================*/
+
+/* const bookings = [];
 
 const creatBooking = function (
   flightNum,
@@ -27,7 +57,7 @@ const creatBooking = function (
 creatBooking('LH123');
 creatBooking('TA445', 2, 800);
 creatBooking('TH8585', 2);
-creatBooking('FR234', undefined, 1000); // Use undefined to set to default value, skip paramether
+creatBooking('FR234', undefined, 1000); // Use undefined to set to default value, skip paramether */
 
 /* ================================_______________________ STRINGS PART __________________________================================== */
 
