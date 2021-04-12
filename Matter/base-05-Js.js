@@ -2,9 +2,27 @@
 
 /* ================================_______________________ fUNCTIONS PART __________________________================================== */
 
+/*========================== Functions Returning Functions ====================================================*/
+
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+const greeteHey = greet('hey');
+
+greeteHey('Tiago');
+greeteHey('Steve');
+
+greet('Hello')('Tiago');
+
+// Doing with arrow functions
+const greet2 = greeting => name => console.log(`${greeting} ${name}`);
+greet2('I luv')('Vittoria');
+
 /*========================== Functions Accepting Callback Functions ====================================================*/
 
-const oneWord = function (str) {
+/* const oneWord = function (str) {
   return str.replace(/ /g, '').toLowerCase();
 };
 
@@ -52,7 +70,7 @@ const mathTwoVariables = function (a, b, fn) {
 mathTwoVariables(4, 5, sum);
 mathTwoVariables(4, 5, subtraction);
 mathTwoVariables(4, 5, multiplication);
-mathTwoVariables(4, 5, division);
+mathTwoVariables(4, 5, division); */
 
 /*========================== First-Class and Higher-Order Functions ====================================================*/
 
