@@ -2,9 +2,19 @@
 
 /* ================================_______________________ fUNCTIONS PART __________________________================================== */
 
+/*========================== First-Class and Higher-Order Functions ====================================================*/
+
+/* 
+First-class functions (concept): Functions are treadted as values, functions are just another type of objects.
+Functions = Values: We can store them in variables like function epressions (const add = (a, b) => a + b) or Object methods. Or pass functions as arguments to another functions like DOM manipulation (when this button is clicked execute this function). Or return a function from functions
+So we have methods for functions as Objects like (bind)
+
+Higher-order functions (practice): Function that receives a function as a argument (function (High-order function), when this button is clicked execute this another function (callback function)) or a function that return a function
+*/
+
 /*========================== How Passing Arguments Works: Value vs. Reference ====================================================*/
 
-const flight = 'LH234'; // Primitive type (String)
+/* const flight = 'LH234'; // Primitive type (String)
 const tiago = {
   // Reference type (Object)
   name: 'Tiago Assunção',
@@ -30,7 +40,7 @@ const newPassaport = function (person) {
   person.passport = Math.trunc(Math.random() * 1000000000000);
 };
 newPassaport(tiago); // Changing tiago passport
-checkIn(flight, tiago); // Alert wrong passport, cause we have a new tiago.passport now
+checkIn(flight, tiago); // Alert wrong passport, cause we have a new tiago.passport now */
 
 /*========================== Functions default parameters ====================================================*/
 
