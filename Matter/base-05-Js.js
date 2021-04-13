@@ -2,9 +2,59 @@
 
 /* ================================_______________________ fUNCTIONS PART __________________________================================== */
 
+/*========================== The Call an Apply Methods ====================================================*/
+
+const lufthansa = {
+  airline: 'Lufthansa',
+  iataCode: 'LH',
+  bookings: [],
+  // book: function(){}
+  book(fligthNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${fligthNum}`
+    );
+    this.bookings.push({ Flight: `${this.iataCode}${fligthNum}`, name });
+  },
+};
+
+lufthansa.book(239, 'Tiago Assunção');
+lufthansa.book(635, 'Will Smith');
+console.log(lufthansa.bookings);
+
+const eurowings = {
+  airline: 'Eurowings',
+  iataCode: 'EW',
+  bookings: [],
+};
+
+const book = lufthansa.book; // Book function
+// DOES NOT work
+// book(23, 'Sara Williams');
+
+// Call Method - (this , fligthNum, name) - Define what is the 'this.' of the function. Use the same property
+book.call(eurowings, 23, 'Sara Williams');
+book.call(lufthansa, 239, 'Mary Cooper');
+console.log(lufthansa);
+console.log(eurowings);
+
+const swiss = {
+  airline: 'Swiss Air Lines',
+  iataCode: 'LX',
+  bookings: [],
+};
+book.call(swiss, 583, 'Mary Cooper');
+console.log(swiss);
+
+// Aplly method - Basic iqual to Call method but receive just this keyword and a array of arguments
+const flightData = [583, 'George Maison'];
+book.apply(swiss, flightData);
+//OR with call
+book.call(swiss, ...flightData);
+console.log(swiss);
+
 /*========================== Functions Returning Functions ====================================================*/
 
-const greet = function (greeting) {
+/* const greet = function (greeting) {
   return function (name) {
     console.log(`${greeting} ${name}`);
   };
@@ -18,7 +68,7 @@ greet('Hello')('Tiago');
 
 // Doing with arrow functions
 const greet2 = greeting => name => console.log(`${greeting} ${name}`);
-greet2('I luv')('Vittoria');
+greet2('I luv')('Vittoria'); */
 
 /*========================== Functions Accepting Callback Functions ====================================================*/
 
