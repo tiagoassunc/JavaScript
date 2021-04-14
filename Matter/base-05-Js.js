@@ -2,7 +2,7 @@
 
 /* ================================_______________________ fUNCTIONS PART __________________________================================== */
 
-/*========================== The Call an Apply Methods ====================================================*/
+/*========================== The Call, Apply and Bind Methods ====================================================*/
 
 const lufthansa = {
   airline: 'Lufthansa',
@@ -33,7 +33,7 @@ const book = lufthansa.book; // Book function
 
 // Call Method - (this , fligthNum, name) - Define what is the 'this.' of the function. Use the same property
 book.call(eurowings, 23, 'Sara Williams');
-book.call(lufthansa, 239, 'Mary Cooper');
+book.call(lufthansa, 239, 'Mary Blood');
 console.log(lufthansa);
 console.log(eurowings);
 
@@ -48,9 +48,58 @@ console.log(swiss);
 // Aplly method - Basic iqual to Call method but receive just this keyword and a array of arguments
 const flightData = [583, 'George Maison'];
 book.apply(swiss, flightData);
-//OR with call
+// OR with call
 book.call(swiss, ...flightData);
-console.log(swiss);
+// console.log(swiss);
+
+// Bind method
+// book.call(eurowings, 23, 'Sara Williams');
+// Creat a new function and the this keyword are always set to 'eurowings'
+const bookEW = book.bind(eurowings);
+const bookLH = book.bind(lufthansa);
+const bookLX = book.bind(swiss);
+
+bookEW(23, 'Steve Williams');
+// console.log(eurowings);
+
+// Creat a function just for EW23 - just need the name
+const bookEW23 = book.bind(eurowings, 23);
+bookEW23('Tiago Assunção');
+bookEW23('Vittoria Zapella');
+//console.log(eurowings);
+
+// ===================================================
+
+// With Event Listener
+lufthansa.planes = 300;
+lufthansa.buyplanes = function () {
+  this.planes++;
+  console.log(this.planes);
+  console.log(this);
+};
+// lufthansa.buyplanes();
+
+document
+  .querySelector('.buy')
+  .addEventListener('click', lufthansa.buyplanes.bind(lufthansa)); // Just lufthansa.buyplanes this keyword poits to te button, element who calls, using bind we set this to lufthansa
+
+// Partial Aplication
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.1, 200));
+
+const addVAT = addTax.bind(null, 0.23); // We set parameter 'rate' to 0.23, must be the first argument
+// addVAT = value => value + value * rate;
+console.log(addVAT(100));
+console.log(addVAT(23));
+
+const addTaxRate = function (rate) {
+  return function (value) {
+    return value + value * rate;
+  };
+};
+const addVAT2 = addTaxRate(0.23);
+console.log(addVAT2(100));
+console.log(addVAT2(23));
 
 /*========================== Functions Returning Functions ====================================================*/
 
