@@ -33,6 +33,12 @@ object! So what should the this keyword look like in this situation?The Complete
 Test data for bonus:
 § Data 1: [5, 2, 3]
 § Data 2: [1, 5, 3, 9, 6, 1] */
+const dataOne = {
+  answers: [5, 2, 3],
+};
+const dataTwo = {
+  answers: [1, 5, 3, 9, 6, 1],
+};
 
 const poll = {
   question: 'What is your favourite programming language?',
@@ -77,3 +83,6 @@ const poll = {
 document
   .querySelector('.poll')
   .addEventListener('click', poll.registerNewAnswer.bind(poll));
+
+/* poll.displayResults.call(dataOne);
+poll.displayResults.call(dataTwo); */
