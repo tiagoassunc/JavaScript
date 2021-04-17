@@ -2,9 +2,33 @@
 
 /* ================================_______________________ fUNCTIONS PART __________________________================================== */
 
+/*==========================  Immediately Invoked Function Expressions (IIFE) ====================================================*/
+
+// Function that run only one time
+const runOnce = function () {
+  console.log('This will never run again');
+};
+runOnce();
+// IIFE Put function inside () and after use () to call it
+(function () {
+  console.log('This will never run again');
+  const isPrivate = 23; // Private data, encapsulated (IMPORTANT!)
+})();
+// console.log(isPrivate);
+
+(() => console.log('This will never run again'))();
+
+{
+  // So block are more effective than IIFE but we can't use var iside them
+  const isPrivate = 23; // Private data
+  var notPrivate = 46; // NOT private because var
+}
+// console.log(isPrivate);
+console.log(notPrivate);
+
 /*========================== The Call, Apply and Bind Methods ====================================================*/
 
-const lufthansa = {
+/* const lufthansa = {
   airline: 'Lufthansa',
   iataCode: 'LH',
   bookings: [],
@@ -66,11 +90,11 @@ bookEW(23, 'Steve Williams');
 const bookEW23 = book.bind(eurowings, 23);
 bookEW23('Tiago Assunção');
 bookEW23('Vittoria Zapella');
-//console.log(eurowings);
+//console.log(eurowings); */
 
 // ===================================================
 
-// With Event Listener
+/* // With Event Listener
 lufthansa.planes = 300;
 lufthansa.buyplanes = function () {
   this.planes++;
@@ -99,7 +123,7 @@ const addTaxRate = function (rate) {
 };
 const addVAT2 = addTaxRate(0.23);
 console.log(addVAT2(100));
-console.log(addVAT2(23));
+console.log(addVAT2(23)); */
 
 /*========================== Functions Returning Functions ====================================================*/
 
