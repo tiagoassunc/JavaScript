@@ -17,7 +17,7 @@ const secureBooking = function () {
 
 const booker = secureBooking(); // Even though the function birth place was gone booker can remember their variables because closure
 
-booker(); // Even though the function was alredy excecuted the return function passengerCount++ can acess the passengerCount variable
+booker(); // Even though the function was alredy executed the return function passengerCount++ can acess the passengerCount variable
 booker();
 booker();
 
