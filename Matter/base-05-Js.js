@@ -2,9 +2,71 @@
 
 /* ================================_______________________ fUNCTIONS PART __________________________================================== */
 
+/*==========================  Closures  ====================================================*/
+// Automatically happens in some situations
+// Any function always has acess to the varible enviromental of the execution context
+// The variable enviromental attached to the function excltly as it was at the time and place the functionwas created
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+const booker = secureBooking(); // Even though the function birth place was gone booker can remember their variables because closure
+
+booker(); // Even though the function was alredy excecuted the return function passengerCount++ can acess the passengerCount variable
+booker();
+booker();
+
+console.dir(booker); // Visualization of closure and more
+
+// More examples
+let f;
+const g = function () {
+  const a = 23;
+  f = function () {
+    console.log(a * 2);
+  };
+};
+
+const h = function () {
+  const b = 777;
+  f = function () {
+    console.log(b * 2);
+  };
+};
+
+g();
+f(); // Even defined outside we can acess - acess a variable
+console.dir(f);
+
+// Re-assingning f function
+h();
+f();
+console.dir(f);
+
+// Example 2
+const boardPassengers = function (n, wait) {
+  const perGroup = n / 3;
+
+  setTimeout(function () {
+    // Independent of boardPassengers function but can acess all variables in variable enviroment that was created
+    console.log(`We are boarding all ${n} passengers`);
+    console.log(`There are 3 groups, each with ${perGroup} passengers`);
+  }, wait * 1000); // Timer - excecute a function after a declared time, in this case one second * wait
+
+  console.log(`Will start boarding in ${wait} seconds`);
+};
+
+const perGroup = 1000; // Closure have priority of scope chain so perGroup still 180 / 3, if we remove const perGroup = n / 3; so it will be 1000
+boardPassengers(180, 3);
+
 /*==========================  Immediately Invoked Function Expressions (IIFE) ====================================================*/
 
-// Function that run only one time
+/* // Function that run only one time
 const runOnce = function () {
   console.log('This will never run again');
 };
@@ -24,7 +86,7 @@ runOnce();
   var notPrivate = 46; // NOT private because var
 }
 // console.log(isPrivate);
-console.log(notPrivate);
+console.log(notPrivate); */
 
 /*========================== The Call, Apply and Bind Methods ====================================================*/
 
