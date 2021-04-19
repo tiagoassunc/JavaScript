@@ -2,7 +2,7 @@
 
 /*========================== Simple Array Methods ====================================================*/
 
-let arr = ['a', 'b', 'c', 'd', 'e'];
+/* let arr = ['a', 'b', 'c', 'd', 'e'];
 
 // SLICE
 console.log(arr.slice(2)); // Creat new array with part off the selected array
@@ -32,4 +32,31 @@ console.log([...arr, ...arr2]);
 
 // JOIN
 console.log(letters.join(' - ')); // Join in a string with a separeter that we deine
-// And all others
+// And all others */
+
+/*========================== Looping Arrays: forEach ====================================================*/
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// for (const movement of movements) {
+for (const [i, movement] of movements.entries()) {
+  if (movement > 0) console.log(`Movement ${i + 1} you deposited ${movement}`);
+  else console.log(`Movement ${i + 1} you withdrew ${Math.abs(movement)}`); // Math to get without the sign
+}
+
+console.log('------ forEach --------'); // FOREACH ---------------------------
+
+movements.forEach(function (move, i, arr) {
+  // FIRST ALWAYS TE CURRENT ELEMENT - SECOND ALWAYS CURRENT INDEX - THIRD ALWAYS ARRAY
+  // Higher order function that requires a callback function | loop over array and execute callbak in each interation
+  if (move > 0)
+    console.log(
+      `Movement ${i + 1} you deposited ${move}. You all movemets was ${arr}`
+    );
+  else
+    console.log(
+      `Movement ${i + 1} you withdrew ${Math.abs(
+        move
+      )}. You all movemets was ${arr}`
+    );
+});
