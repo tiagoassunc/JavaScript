@@ -1,7 +1,32 @@
 'use strict';
 
-/*========================== The filter Method ====================================================*/
+/*========================== The reduce Method ====================================================*/
+
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+console.log(movements);
+
+// const balance = movements.reduce(function (acc, cur, i, arr) {
+//   // First paramether alwas the accumulator, like a snow ball
+//   console.log(`Interation number ${i}: ${acc}`);
+//   return acc + cur;
+// }, 0); // the start value of accumulator
+// console.log(balance);
+const balance = movements.reduce((acc, cur) => acc + cur, 0);
+console.log(balance);
+
+let balance2 = 0;
+for (const mov of movements) balance2 += mov;
+console.log(balance2);
+
+// Maximum value
+const maxMovement = movements.reduce(
+  (acc, cur) => (cur > acc ? (acc = cur) : (acc = acc)),
+  0
+);
+console.log(maxMovement);
+
+/*========================== The filter Method ====================================================*/
+/* const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 console.log(movements);
 
 const deposits = movements.filter(function (mov) {
@@ -13,7 +38,7 @@ console.log(withdrawals);
 
 const depositsFor = [];
 for (const mov of movements) if (mov > 0) depositsFor.push(mov);
-console.log(depositsFor);
+console.log(depositsFor); */
 
 /*========================== The map Method ====================================================*/
 
