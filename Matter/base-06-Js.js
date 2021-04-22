@@ -1,5 +1,81 @@
 'use strict';
 
+/*========================== The map Method ====================================================*/
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+console.log(movements);
+const eurToUsd = 1.1;
+
+/* const movementsUSD = movements.map(function (mov) {
+  // Converting euro to usd (usign eurToUsd)
+  return mov * eurToUsd; // The new array
+  // return 23;
+}); */
+// Doing with arrow, not normal function
+const movementsUSD = movements.map(mov => mov * eurToUsd);
+console.log(movementsUSD);
+
+// Doing the same with for
+const movementsUSDfor = [];
+for (const mov of movements) movementsUSDfor.push(mov * eurToUsd);
+console.log(movementsUSDfor);
+
+// Return a arr of strings
+const movementsDecripstion = movements.map(
+  (mov, i) =>
+    `Movement ${i + 1} you ${mov > 0 ? 'deposited' : 'wirhdrew'} ${Math.abs(
+      mov
+    )}`
+);
+console.log(movementsDecripstion);
+
+/*========================== forEach With Maps and Sets ====================================================*/
+
+/* // Map
+const currencies = new Map([
+  ['USD', 'United States dollar'],
+  ['EUR', 'Euro'],
+  ['GBP', 'Pound sterling'],
+]);
+
+currencies.forEach(function (value, key, map) {
+  console.log(`${key}: ${value}`);
+});
+
+// Set
+const currenciesUnique = new Set(['USD', 'GBP', 'USD', 'EUR', 'EUR']);
+console.log(currenciesUnique);
+currenciesUnique.forEach(function (value, _, Set) {
+  console.log(`${_}: ${value}`);
+}); */
+
+/*========================== Looping Arrays: forEach ====================================================*/
+
+/* const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// for (const movement of movements) {
+for (const [i, movement] of movements.entries()) {
+  if (movement > 0) console.log(`Movement ${i + 1} you deposited ${movement}`);
+  else console.log(`Movement ${i + 1} you withdrew ${Math.abs(movement)}`); // Math to get without the sign
+}
+
+console.log('------ forEach --------'); // FOREACH ---------------------------
+
+movements.forEach(function (move, i, arr) {
+  // FIRST ALWAYS TE CURRENT ELEMENT - SECOND ALWAYS CURRENT INDEX - THIRD ALWAYS ARRAY
+  // Higher order function that requires a callback function | loop over array and execute callbak in each interation
+  if (move > 0)
+    console.log(
+      `Movement ${i + 1} you deposited ${move}. You all movemets was ${arr}`
+    );
+  else
+    console.log(
+      `Movement ${i + 1} you withdrew ${Math.abs(
+        move
+      )}. You all movemets was ${arr}`
+    );
+}); */
+
 /*========================== Simple Array Methods ====================================================*/
 
 /* let arr = ['a', 'b', 'c', 'd', 'e'];
@@ -33,50 +109,3 @@ console.log([...arr, ...arr2]);
 // JOIN
 console.log(letters.join(' - ')); // Join in a string with a separeter that we deine
 // And all others */
-
-/*========================== Looping Arrays: forEach ====================================================*/
-
-/* const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
-// for (const movement of movements) {
-for (const [i, movement] of movements.entries()) {
-  if (movement > 0) console.log(`Movement ${i + 1} you deposited ${movement}`);
-  else console.log(`Movement ${i + 1} you withdrew ${Math.abs(movement)}`); // Math to get without the sign
-}
-
-console.log('------ forEach --------'); // FOREACH ---------------------------
-
-movements.forEach(function (move, i, arr) {
-  // FIRST ALWAYS TE CURRENT ELEMENT - SECOND ALWAYS CURRENT INDEX - THIRD ALWAYS ARRAY
-  // Higher order function that requires a callback function | loop over array and execute callbak in each interation
-  if (move > 0)
-    console.log(
-      `Movement ${i + 1} you deposited ${move}. You all movemets was ${arr}`
-    );
-  else
-    console.log(
-      `Movement ${i + 1} you withdrew ${Math.abs(
-        move
-      )}. You all movemets was ${arr}`
-    );
-}); */
-
-/*========================== forEach With Maps and Sets ====================================================*/
-
-// Map
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
-
-currencies.forEach(function (value, key, map) {
-  console.log(`${key}: ${value}`);
-});
-
-// Set
-const currenciesUnique = new Set(['USD', 'GBP', 'USD', 'EUR', 'EUR']);
-console.log(currenciesUnique);
-currenciesUnique.forEach(function (value, _, Set) {
-  console.log(`${_}: ${value}`);
-});
