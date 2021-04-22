@@ -1,16 +1,31 @@
 'use strict';
 
+/*========================== The filter Method ====================================================*/
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+console.log(movements);
+
+const deposits = movements.filter(function (mov) {
+  return mov > 0;
+});
+console.log(deposits);
+const withdrawals = movements.filter(mov => mov < 0);
+console.log(withdrawals);
+
+const depositsFor = [];
+for (const mov of movements) if (mov > 0) depositsFor.push(mov);
+console.log(depositsFor);
+
 /*========================== The map Method ====================================================*/
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+/* const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 console.log(movements);
 const eurToUsd = 1.1;
 
-/* const movementsUSD = movements.map(function (mov) {
-  // Converting euro to usd (usign eurToUsd)
-  return mov * eurToUsd; // The new array
-  // return 23;
-}); */
+// const movementsUSD = movements.map(function (mov) {
+//   // Converting euro to usd (usign eurToUsd)
+//   return mov * eurToUsd; // The new array
+//   // return 23;
+// });
 // Doing with arrow, not normal function
 const movementsUSD = movements.map(mov => mov * eurToUsd);
 console.log(movementsUSD);
@@ -27,7 +42,7 @@ const movementsDecripstion = movements.map(
       mov
     )}`
 );
-console.log(movementsDecripstion);
+console.log(movementsDecripstion); */
 
 /*========================== forEach With Maps and Sets ====================================================*/
 
