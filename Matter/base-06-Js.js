@@ -1,8 +1,38 @@
 'use strict';
 
+/*========================== Sorting Arrays ====================================================*/
+
+// SORT => put arrays in alphabetical order - MUTATES THE ORIGINAL ARRAY
+const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
+console.log(owners.sort());
+console.log(owners);
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+console.log(movements);
+
+// SORT NUMBERS => put arrays in numeric order
+// Return < 0, A, B (keep order)
+// Return > 0, B, A (switch order)
+
+// movements.sort((a, b) => {
+//   if (a > b) return 1;
+//   if (a < b) return -1;
+// });
+// console.log(movements);
+
+//Simple way
+movements.sort((a, b) => a - b);
+
+//Descending
+movements.sort((a, b) => {
+  if (a > b) return -1;
+  if (a < b) return +1;
+});
+console.log(movements);
+
 /*========================== flat and flatMap ====================================================*/
 
-// FLAT => Transform in one big array
+/* // FLAT => Transform in one big array
 const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
 console.log(arr.flat());
 
@@ -50,7 +80,7 @@ console.log(balance);
 const balance2 = accounts
   .flatMap(acc => acc.movements)
   .reduce((acc, mov) => acc + mov, 0);
-console.log(balance2);
+console.log(balance2); */
 
 /*========================== some and every ====================================================*/
 
