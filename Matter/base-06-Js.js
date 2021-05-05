@@ -1,8 +1,33 @@
 'use strict';
 
+/*========================== More Ways of Creating and Filling Arrays ====================================================*/
+
+const arr = [1, 2, 3, 4, 5, 6, 7];
+console.log(new Array(1, 2, 3, 4, 5, 6, 7));
+
+// Creating
+const x = new Array(7);
+console.log(x);
+
+// Filling - Empty arrays
+//x.fill(1);
+x.fill(1, 3, 5); // Number to fill, begin, end
+console.log(x);
+
+// Filling arrays
+arr.fill(23, 4, 6);
+console.log(arr);
+
+// Array.from - use length and map method
+const y = Array.from({ length: 7 }, () => 1);
+console.log(y);
+
+const z = Array.from({ length: 7 }, (_, i) => i + 1); // _ because we don't need the parameter but need i, second parameter
+console.log(z);
+
 /*========================== Sorting Arrays ====================================================*/
 
-// SORT => put arrays in alphabetical order - MUTATES THE ORIGINAL ARRAY
+/* // SORT => put arrays in alphabetical order - MUTATES THE ORIGINAL ARRAY
 const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
 console.log(owners.sort());
 console.log(owners);
@@ -28,7 +53,7 @@ movements.sort((a, b) => {
   if (a > b) return -1;
   if (a < b) return +1;
 });
-console.log(movements);
+console.log(movements); */
 
 /*========================== flat and flatMap ====================================================*/
 
