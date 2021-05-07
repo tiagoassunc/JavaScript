@@ -32,17 +32,80 @@ portion in an ascending order (keep in mind that the portions are inside the
 array's objects �)
 
 Test data:
- const dogs = [
- { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
- { weight: 8, curFood: 200, owners: ['Matilda'] },
- { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
- { weight: 32, curFood: 340, owners: ['Michael'] },
- ];
- */
+*/
+const dogs = [
+  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+  { weight: 8, curFood: 200, owners: ['Matilda'] },
+  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+  { weight: 32, curFood: 340, owners: ['Michael'] },
+];
+
+dogs.forEach(
+  dog => (dog.recommendedFood = (dog.weight ** 0.75 * 28).toFixed(0))
+);
+console.log(dogs);
+
+const eating = function (dog) {
+  if (dog.curFood > dog.recommendedFood * 1.1) {
+    return 'much';
+  } else if (dog.curFood < dog.recommendedFood * 0.9) {
+    return 'little';
+  }
+};
+
+dogs.map(dog => {
+  if (dog.owners.includes('Sarah') && eating(dog)) {
+    console.log(`${dog.owners[0]}'s dog is eating too much`);
+  } else if (dog.owners.includes('Sarah') && !eating(dog)) {
+    console.log(`${dog.owners[0]}'s dog is eating too litlle`);
+  }
+});
+
+const ownersEatTooMuch = dogs
+  .filter(dog => eating(dog) === 'much')
+  .flatMap(dog => dog.owners);
+console.log(ownersEatTooMuch);
+const ownersEatTooLittle = dogs
+  .filter(dog => eating(dog) === 'little')
+  .flatMap(dog => dog.owners);
+console.log(ownersEatTooLittle);
+
+const convertString = arr => {
+  const str =
+    arr.join(' and ') +
+    `${
+      arr.includes(ownersEatTooMuch)
+        ? "'s dog is eat too much!"
+        : "'s dog is eat too little!"
+    } `;
+  console.log(str);
+};
+convertString(ownersEatTooMuch);
+convertString(ownersEatTooLittle);
+
+console.log(dogs.some(dog => dog.curFood === dog.recommendedFood));
+console.log(
+  dogs.some(
+    dog =>
+      dog.curFood < dog.recommendedFood * 1.1 &&
+      dog.curFood > dog.recommendedFood * 0.9
+  )
+);
+
+const okayDogs = dogs.filter(
+  dog =>
+    dog.curFood < dog.recommendedFood * 1.1 &&
+    dog.curFood > dog.recommendedFood * 0.9
+);
+console.log(okayDogs);
+
+const sortDogs = dogs.slice();
+sortDogs.sort((a, b) => a.recommendedFood - b.recommendedFood);
+console.log(sortDogs);
 
 //////////////////////////////// Array methods practice ////////////////////////////////////////////////////////////////////////
 
-//DATA
+/* //DATA
 const account1 = {
   owner: 'Jonas Schmedtmann',
   movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
@@ -105,3 +168,20 @@ const { deposits, withdrawals } = accounts // Destructuring
     { deposits: 0, withdrawals: 0 }
   ); // { deposits: 0 }, { withdrawals: 0 } = accumulator = sums
 console.log(deposits, withdrawals);
+
+// 4. this is a nice title -> This Is a Nice Title
+const convertTitleCase = function (title) {
+  const capitalize = str => str[0].toUpperCase() + str.slice(1);
+
+  const exceptions = ['a', 'an', 'the', 'and', 'but', 'or', 'on', 'in', 'with'];
+
+  const titleCase = title
+    .toLowerCase()
+    .split(' ')
+    .map(word => (exceptions.includes(word) ? word : capitalize(word)))
+    .join(' ');
+  return capitalize(titleCase);
+};
+console.log(convertTitleCase('this is a nice title'));
+console.log(convertTitleCase('this is a LONG title but not too long'));
+console.log(convertTitleCase('and here is another title with an EXAMPLE')); */
