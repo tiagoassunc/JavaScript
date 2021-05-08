@@ -85,7 +85,7 @@ console.log(+(2.345).toFixed(2)); // + => to convert to number */
 
 ///////////////////////////////////////////////////////////////////////////////////////////////// The Remainder Operator
 
-console.log(5 % 2); // 5 = 2 * 2 + 1
+/* console.log(5 % 2); // 5 = 2 * 2 + 1
 console.log(8 % 3);
 
 // Even
@@ -97,4 +97,41 @@ console.log(5 % 2 !== 0);
 const isEven = n => n % 2 === 0;
 console.log(isEven(8));
 console.log(isEven(13));
-console.log(isEven(514));
+console.log(isEven(514)); */
+
+///////////////////////////////////////////////////////////////////////////////////////////////// Working with BigInt
+
+// MAX value
+console.log(2 ** 53 - 1);
+console.log(Number.MAX_SAFE_INTEGER);
+// Bigger values are sometimes correct and sometimes wrong
+console.log(2 ** 53 + 1);
+console.log(2 ** 53 + 2);
+console.log(2 ** 53 + 3);
+console.log(2 ** 53 + 4);
+
+// BigInt => store numbers as large as we want
+console.log(7895793874932874837739824782738n); // n => BigInt
+console.log(BigInt(7895793874932));
+
+// Operations
+console.log(10000n + 1000n);
+console.log(
+  1467998326483165764587364583658365843658n * 8903849083209849408230000000n
+);
+
+const huge = 579347583459758349759435874n;
+const num = 23;
+console.log(huge * BigInt(num)); // need to transform variable value in big int
+
+// Excepitions
+console.log(20n > 15);
+console.log(20n === 20); // Different primitive type
+console.log(typeof 20n);
+console.log(20n == ' 20');
+
+console.log(huge + ' is REALLY big!!!');
+
+// Divisions
+console.log(10n / 3n); // Return closest bigint
+console.log(10 / 3);
