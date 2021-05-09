@@ -101,7 +101,7 @@ console.log(isEven(514)); */
 
 ///////////////////////////////////////////////////////////////////////////////////////////////// Working with BigInt
 
-// MAX value
+/* // MAX value
 console.log(2 ** 53 - 1);
 console.log(Number.MAX_SAFE_INTEGER);
 // Bigger values are sometimes correct and sometimes wrong
@@ -134,4 +134,38 @@ console.log(huge + ' is REALLY big!!!');
 
 // Divisions
 console.log(10n / 3n); // Return closest bigint
-console.log(10 / 3);
+console.log(10 / 3); */
+
+///////////////////////////////////////////////////////////////////////////////////////////////// Creating Dates
+
+// Creat a date
+/* const now = new Date();
+console.log(now);
+
+console.log(new Date('Sat May 08 2021 12:34:03'));
+console.log(new Date('December 24, 2015'));
+
+console.log(new Date(2037, 10, 19, 15, 23, 5));
+console.log(new Date(2037, 10, 33)); // Corrects the date
+
+console.log(new Date(0));
+console.log(new Date(3 * 24 * 60 * 60 * 1000)); // time stamp */
+
+// Workig with dates
+const future = new Date(2037, 10, 19, 15, 23);
+console.log(future);
+console.log(future.getFullYear());
+console.log(future.getMonth()); // 0 based => 10 = Nov (11)
+console.log(future.getDate());
+console.log(future.getHours());
+console.log(future.getMinutes());
+console.log(future.getSeconds());
+console.log(future.getSeconds());
+console.log(future.toISOString());
+console.log(future.getTime());
+
+console.log(new Date(2142267780000));
+
+console.log(Date.now()); // Now
+
+future.setFullYear(2040); // ...
