@@ -151,7 +151,7 @@ console.log(new Date(2037, 10, 33)); // Corrects the date
 console.log(new Date(0));
 console.log(new Date(3 * 24 * 60 * 60 * 1000)); // time stamp */
 
-// Workig with dates
+/* // Workig with dates
 const future = new Date(2037, 10, 19, 15, 23);
 console.log(future);
 console.log(future.getFullYear());
@@ -168,4 +168,17 @@ console.log(new Date(2142267780000));
 
 console.log(Date.now()); // Now
 
-future.setFullYear(2040); // ...
+future.setFullYear(2040); // ... */
+
+///////////////////////////////////////////////////////////////////////////////////////////////// Operations With Dates
+
+const future = new Date(2037, 10, 19, 15, 23);
+//console.log(Number(future)); // Time stamp
+console.log(+future); // Time stamp
+
+// Calc days passed
+const calcDaysPassed = (date1, date2) =>
+  Math.abs(date2 - date1) / (1000 * 60 * 60 * 24); // Absolute / Seconds - minutes - hours - days
+
+const days1 = calcDaysPassed(new Date(2037, 3, 14), new Date(2037, 3, 4));
+console.log(days1);
