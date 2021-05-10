@@ -185,7 +185,7 @@ console.log(days1); */
 
 ///////////////////////////////////////////////////////////////////////////////////////////////// Internationalizing Numbers (Intl)
 
-const num = 8049589043.45;
+/* const num = 8049589043.45;
 
 const options = {
   style: 'currency', // unit, percent
@@ -200,4 +200,27 @@ console.log('Syria:', new Intl.NumberFormat('ar-SY', options).format(num));
 console.log(
   navigator.language,
   new Intl.NumberFormat(navigator.language, options).format(num)
-);
+); */
+
+///////////////////////////////////////////////////////////////////////////////////////////////// Timers: setTimeout and setInterval
+
+const ingredients = ['olives']; //'spinach']
+const pizzaTimer = setTimeout(
+  (ing1, ing2) => console.log(`Here is your pizza with ${ing1} and ${ing2} 🍕`),
+  3000,
+  ...ingredients
+); // Call back function after a time in miliseconds
+console.log('Waiting...');
+
+if (ingredients.includes('spinach')) clearTimeout(pizzaTimer); // Stopping timer
+
+// Clock
+setInterval(function () {
+  const now = new Date();
+  const nowFormatted = new Intl.DateTimeFormat('pt-BR', {
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric',
+  }).format(now);
+  console.log(nowFormatted);
+}, 1000); // Call back function after every a time in miliseconds
