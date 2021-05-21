@@ -3,7 +3,7 @@
 
 /// Constructor Functions and the new Operator ///
 
-// Initializate with Capital letters
+/* // Initializate with Capital letters
 const Person = function (firstName, birthYear) {
   // Instance properties
   this.firstName = firstName; // this points -> object itself
@@ -64,7 +64,7 @@ console.log(Person.prototype.constructor); // Points back to Person
 
 // Prototype of constructor (Array, Object, fuctions, HTMLHeadingElement etc) = protype of all objects created by that constructor
 const arr = [3, 5, 8, 2, 3, 5, 3, 8, 2, 2]; // new Array === []
-console.log(arr.__proto__); // All methods that we can acces => ihnretance from prototype
+console.log(arr.__proto__); // All methods that we can acces => inheritance from prototype
 console.log(arr.__proto__ === Array.prototype);
 console.log(arr.__proto__.__proto__);
 // Creating methods on Array.protype
@@ -77,4 +77,38 @@ console.log(arr.unique());
 const h1 = document.querySelector('h1');
 console.dir(h1);
 
-console.dir(x => x + 1);
+console.dir(x => x + 1); */
+
+/// ES6 Classes ///
+
+// 1. Classes are NOT hoisted (can't use before declaration on code)
+// 2. Class are first-class citizes (Can pass and return in functions)
+// 3. Classes are executed in strict mode ↓
+
+// Classe => Continue implementing prototype inheritance behind the scenes with a better syntax
+// Class expression ↓
+// const Person = class{}
+
+// Class declaration ↓
+class PersonCl {
+  constructor(firstName, birthYear) {
+    // Properties
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+
+  // Methods => Added to .prototype property (outside constructor)
+  calcAge() {
+    console.log(2021 - this.birthYear);
+  }
+}
+const jessica = new PersonCl('Jessica', 1969);
+console.log(jessica);
+jessica.calcAge();
+console.log(jessica.__proto__ === PersonCl.prototype);
+
+// Creating methods in Class
+PersonCl.prototype.greet = function () {
+  console.log(`Hey ${this.firstName}`);
+};
+jessica.greet();
