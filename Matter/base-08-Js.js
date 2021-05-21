@@ -91,9 +91,9 @@ console.dir(x => x + 1); */
 
 // Class declaration ↓
 class PersonCl {
-  constructor(firstName, birthYear) {
+  constructor(fullName, birthYear) {
     // Properties
-    this.firstName = firstName;
+    this.fullName = fullName;
     this.birthYear = birthYear;
   }
 
@@ -101,14 +101,55 @@ class PersonCl {
   calcAge() {
     console.log(2021 - this.birthYear);
   }
+
+  // Just like a regular method that we set on the prototype => create a property
+  get age() {
+    return 2021 - this.birthYear;
+  }
+
+  // Set a property that already exists => ( Usin as validation => common case)
+  set fullName(name) {
+    console.log(name);
+    if (name.includes(' ')) this._fullName = name;
+    // Using _fullName to creat another variable => without conflict with fullName => _ convention
+    else alert(`${name} is not a full name`);
+  }
+
+  get fullName() {
+    return this._fullName; // Return _fullName in fullName variable
+  }
 }
-const jessica = new PersonCl('Jessica', 1969);
+const jessica = new PersonCl('Jessica Davis', 1969);
 console.log(jessica);
 jessica.calcAge();
+console.log(jessica.age);
 console.log(jessica.__proto__ === PersonCl.prototype);
 
 // Creating methods in Class
 PersonCl.prototype.greet = function () {
-  console.log(`Hey ${this.firstName}`);
+  console.log(`Hey ${this.fullName}`);
 };
 jessica.greet();
+
+const walter = new PersonCl('Walter White', 1995);
+
+/// Setters and Getters ///
+
+// Assessor properties
+const account = {
+  owner: 'Jonas',
+  movements: [200, 250, 120, 300],
+
+  get latest() {
+    // Method turn result as a property
+    return this.movements.slice(-1);
+  },
+
+  // Need exactly one parameter ↓
+  set latest(mov) {
+    this.movements.push(mov);
+  },
+};
+console.log(account.latest); // Get => Read as property
+account.latest = 50; // Set => set as property
+console.log(account.movements);
