@@ -3,7 +3,7 @@
 
 /// Constructor Functions and the new Operator ///
 
-/* // Initializate with Capital letters
+// Initializate with Capital letters
 const Person = function (firstName, birthYear) {
   // Instance properties
   this.firstName = firstName; // this points -> object itself
@@ -30,6 +30,15 @@ console.log(tiago, jack);
 console.log(jonas instanceof Person); // Checkinh if is a instance of function constructor
 const jay = { firstName: 'Jay', birthYear: 1999 };
 console.log(jay instanceof Person);
+
+/// Static Methods ///
+// ↓ Static Methods is attached to the constructor => Arry.from (Not [].from) or Number.parseFloat(12) (not 12.parseFloat())
+Person.hey = function () {
+  console.log('Hey there 👋🏾');
+  console.log(this);
+};
+Person.hey();
+// So Not ihnreted ERROR => jonas.hey()
 
 /// Prototypes ///
 
@@ -77,7 +86,7 @@ console.log(arr.unique());
 const h1 = document.querySelector('h1');
 console.dir(h1);
 
-console.dir(x => x + 1); */
+console.dir(x => x + 1);
 
 /// ES6 Classes ///
 
@@ -102,6 +111,7 @@ class PersonCl {
     console.log(2021 - this.birthYear);
   }
 
+  /// Setters and Getters ///
   // Just like a regular method that we set on the prototype => create a property
   get age() {
     return 2021 - this.birthYear;
@@ -118,6 +128,13 @@ class PersonCl {
   get fullName() {
     return this._fullName; // Return _fullName in fullName variable
   }
+
+  /// Static Methods ///
+  // NOT added to the .prototype property
+  static hey() {
+    console.log('Hey there 👋🏾');
+    console.log(this);
+  }
 }
 const jessica = new PersonCl('Jessica Davis', 1969);
 console.log(jessica);
@@ -132,6 +149,7 @@ PersonCl.prototype.greet = function () {
 jessica.greet();
 
 const walter = new PersonCl('Walter White', 1995);
+PersonCl.hey();
 
 /// Setters and Getters ///
 
@@ -153,3 +171,29 @@ const account = {
 console.log(account.latest); // Get => Read as property
 account.latest = 50; // Set => set as property
 console.log(account.movements);
+
+/// Object.create ///
+
+// Use essentially to manually SET the PROTOTYPE of an OBJECT
+const PersonProto = {
+  calcAge() {
+    console.log(2021 - this.birthYear); // All persons creat will have this __proto__
+  },
+
+  // SIMULATES the constructor ↓
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+const steven = Object.create(PersonProto); // Prototype ihnreritance in a different way
+console.log(steven);
+steven.name = 'Steven';
+steven.birthYear = 2002;
+steven.calcAge();
+console.log(steven.__proto__ === PersonProto); // Equal PersonProto that is the protype of object
+
+const sarah = Object.create(PersonProto);
+// Non manually way of set the properties ↓
+sarah.init('Sarah', 1979);
+sarah.calcAge();
