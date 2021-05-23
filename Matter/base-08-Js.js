@@ -1,7 +1,7 @@
 //// OPP Object-Oriented Programming ////
 'use strict';
 
-/// Constructor Functions and the new Operator ///
+/* /// Constructor Functions and the new Operator ///
 
 // Initializate with Capital letters
 const Person = function (firstName, birthYear) {
@@ -196,4 +196,132 @@ console.log(steven.__proto__ === PersonProto); // Equal PersonProto that is the 
 const sarah = Object.create(PersonProto);
 // Non manually way of set the properties ↓
 sarah.init('Sarah', 1979);
-sarah.calcAge();
+sarah.calcAge(); */
+
+////// Inheritance Between "Classes" //////
+
+/* /// Constructor Functions ↓ ///
+const Person = function (firstName, birthYear) {
+  this.firstName = firstName;
+  this.birthYear = birthYear;
+};
+Person.prototype.calcAge = function () {
+  console.log(2021 - this.birthYear);
+};
+
+const Student = function (firstName, birthYear, course) {
+  Person.call(this, firstName, birthYear); // Setting (.call) this keyword to the object that will be create
+  this.course = course;
+};
+// Create a empty prototype objetc => need to be first add methods
+Student.prototype = Object.create(Person.prototype);
+
+Student.prototype.introduce = function () {
+  console.log(`My name is ${this.firstName} and I study ${this.course}`);
+};
+
+const mike = new Student('Mike', 2000, 'Computer Science');
+console.log(mike);
+mike.introduce();
+mike.calcAge();
+
+// Inspecting
+console.log(mike.__proto__);
+console.log(mike.__proto__.__proto__);
+
+// Visual prototype chain
+console.log(mike instanceof Student); // Both true cause are linked
+console.log(mike instanceof Person); // Both true cause are linked
+console.log(mike instanceof Object); // Both true cause are linked
+
+// Fixing constructor
+Student.prototype.constructor = Student;
+console.dir(Student.prototype.constructor); */
+
+/// ES6 Classes ///
+
+class PersonCl {
+  constructor(fullName, birthYear) {
+    this.fullName = fullName;
+    this.birthYear = birthYear;
+  }
+
+  calcAge() {
+    console.log(2021 - this.birthYear);
+  }
+
+  get age() {
+    return 2021 - this.birthYear;
+  }
+
+  set fullName(name) {
+    console.log(name);
+    if (name.includes(' ')) this._fullName = name;
+    else alert(`${name} is not a full name`);
+  }
+
+  get fullName() {
+    return this._fullName;
+  }
+
+  static hey() {
+    console.log('Hey there 👋🏾');
+    console.log(this);
+  }
+}
+
+// extends prototype to child class
+class StudentCl extends PersonCl {
+  constructor(fullName, birthYear, course) {
+    // Allways before
+    super(fullName, birthYear); // Constructor function of the parent
+    this.course = course;
+  }
+
+  introduce() {
+    console.log(`My name is ${this.fullName} and I study ${this.course}`);
+  }
+
+  calcAge() {
+    console.log(
+      `I'm ${
+        2021 - this.birthYear
+      } years old but as a student i feel more like ${
+        2021 - this.birthYear + 10
+      }`
+    );
+  }
+}
+
+const vittoria = new StudentCl('Vittoria Rappella', 2002, 'Medicine');
+vittoria.introduce();
+vittoria.calcAge();
+
+/// Object.create ///
+
+const PersonProto = {
+  calcAge() {
+    console.log(2021 - this.birthYear);
+  },
+
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+const steven = Object.create(PersonProto);
+
+const StudentProto = Object.create(PersonProto);
+StudentProto.init = function (firstName, birthYear, course) {
+  PersonProto.init.call(this, firstName, birthYear);
+  this.course = course;
+};
+
+StudentProto.introduce = function () {
+  console.log(`My name is ${this.firstName} and I study ${this.course}`);
+};
+
+const jay = Object.create(StudentProto);
+jay.init('Jay Creed', 1930, 'Computer Science');
+jay.introduce();
+jay.calcAge();
