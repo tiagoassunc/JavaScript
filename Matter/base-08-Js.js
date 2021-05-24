@@ -328,27 +328,38 @@ jay.calcAge(); */
 
 ///// Another Class Example /////
 ///// Encapsulation: Protected Properties and Methods /////
+///// Encapsulation: Private Class Fields and Methods ↓ ///// => FUTURE
 
+// 1)Public fields => gonna be in all instances
+// 2) Private fields
+// 3) Public methods
+// 4) Private methods
 class Account {
+  // 1)Public fields (instances)
+  locale = navigator.language;
+
+  // 2) Private fields (instances)
+  #movements = [];
+  #pin;
+
   constructor(owner, currency, pin) {
     this.owner = owner;
     this.currency = currency;
     // Protected propertie => convention _
-    this._pin = pin;
-    this._movements = [];
-
-    this.locale = navigator.language;
+    this.#pin = pin;
+    // this._movements = [];
+    // this.locale = navigator.language;
 
     console.log(`thanks for oppen a new account, ${owner}.`);
   }
 
-  // Public interface (API)
+  // 3) Public methods Public interface (API)
   getMovements() {
-    return this._movements;
+    return this.#movements;
   }
 
   deposit(val) {
-    this._movements.push(val);
+    this.#movements.push(val);
   }
 
   withdraw(val) {
@@ -365,17 +376,30 @@ class Account {
       console.log(`Loan approved`);
     }
   }
+
+  static helper() {
+    console.log('Helper');
+  }
+
+  // 4) Private methods
+  // #approveLoan(val) {
+  //   return true;
+  // }
 }
 const acc1 = new Account('Tiago', 'R$', 6666);
 console.log(acc1);
 
 // acc1.movements.push(650);
 // acc1.movements.push(-250);
+// acc1.approveLoan(1000);
+
 acc1.deposit(650);
 acc1.withdraw(150);
 acc1.requestLoan(1000);
-// acc1.approveLoan(1000);
 console.log(acc1.getMovements());
-
 console.log(acc1);
-// console.log(acc1.pin);
+Account.helper();
+
+// console.log(acc1.#movements);
+// console.log(acc1.#pin);
+// console.log(acc1.#approveLoan(123));
