@@ -238,7 +238,7 @@ console.log(mike instanceof Object); // Both true cause are linked
 Student.prototype.constructor = Student;
 console.dir(Student.prototype.constructor); */
 
-/// ES6 Classes ///
+/* /// ES6 Classes ///
 
 class PersonCl {
   constructor(fullName, birthYear) {
@@ -324,4 +324,50 @@ StudentProto.introduce = function () {
 const jay = Object.create(StudentProto);
 jay.init('Jay Creed', 1930, 'Computer Science');
 jay.introduce();
-jay.calcAge();
+jay.calcAge(); */
+
+///// Another Class Example /////
+
+class Account {
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    this.pin = pin;
+    this.movements = [];
+    this.locale = navigator.language;
+
+    console.log(`thanks for oppen a new account, ${owner}.`);
+  }
+
+  // Public interface (API)
+  deposit(val) {
+    this.movements.push(val);
+  }
+
+  withdraw(val) {
+    this.deposit(-val);
+  }
+
+  approveLoan(val) {
+    return true;
+  }
+
+  requestLoan(val) {
+    if (this.approveLoan(val)) {
+      this.deposit(val);
+      console.log(`Loan approved`);
+    }
+  }
+}
+const acc1 = new Account('Tiago', 'R$', 6666);
+console.log(acc1);
+
+// acc1.movements.push(650);
+// acc1.movements.push(-250);
+acc1.deposit(650);
+acc1.withdraw(150);
+acc1.requestLoan(1000);
+acc1.approveLoan(1000);
+
+console.log(acc1);
+console.log(acc1.pin);
