@@ -360,10 +360,12 @@ class Account {
 
   deposit(val) {
     this.#movements.push(val);
+    return this;
   }
 
   withdraw(val) {
     this.deposit(-val);
+    return this;
   }
 
   _approveLoan(val) {
@@ -375,6 +377,7 @@ class Account {
       this.deposit(val);
       console.log(`Loan approved`);
     }
+    return this;
   }
 
   static helper() {
@@ -403,3 +406,7 @@ Account.helper();
 // console.log(acc1.#movements);
 // console.log(acc1.#pin);
 // console.log(acc1.#approveLoan(123));
+
+///// Chaining Methods /////
+// Need to return object on methods
+acc1.deposit(300).deposit(500).withdraw(35).requestLoan(25000).withdraw(4000);
