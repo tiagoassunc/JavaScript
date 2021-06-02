@@ -1,7 +1,7 @@
 //// ASYNCHROUNOUS JAVASCRIPT: PROMISES, ASYNC/AWAIT, AND AJAX ////
 'use strict';
 
-const btn = document.querySelector('.btn-country');
+/* const btn = document.querySelector('.btn-country');
 const countriesContainer = document.querySelector('.countries');
 
 const renderError = function (msg) {
@@ -26,7 +26,7 @@ const renderCountry = function (data, className = '') {
   `;
   countriesContainer.insertAdjacentHTML('beforeend', html);
   // countriesContainer.style.opacity = 1;
-};
+}; */
 
 ///////////////////////////////////////
 
@@ -143,7 +143,7 @@ setTimeout(() => {
 // };
 
 // Throwing Errors Manually
-const getJSON = function (url, errorMsg = 'Something went wrong') {
+/* const getJSON = function (url, errorMsg = 'Something went wrong') {
   return fetch(url).then(
     response => {
       console.log(response);
@@ -152,7 +152,7 @@ const getJSON = function (url, errorMsg = 'Something went wrong') {
     }
     // error => alert(error)
   );
-};
+}; */
 
 /* // Handling Rejected Promises
 const getCountryData = function (country) {
@@ -196,7 +196,7 @@ btn.addEventListener('click', function () {
 });
 // getCountryData('dsfsd'); */
 
-const getCountryData = function (country) {
+/* const getCountryData = function (country) {
   // Country 1
   getJSON(
     `https://restcountries.eu/rest/v2/name/${country}`,
@@ -227,4 +227,14 @@ const getCountryData = function (country) {
 btn.addEventListener('click', function () {
   getCountryData('congo');
 });
-getCountryData('australia');
+getCountryData('australia'); */
+
+///// The Event Loop in Practice /////
+console.log('Test start');
+setTimeout(() => console.log('0 sec timer'), 0);
+Promise.resolve('Resolved promise 1').then(res => console.log(res));
+Promise.resolve('Resolved promise 2').then(res => {
+  for (let i = 0; i < 1000000000; i++) {}
+  console.log(res);
+});
+console.log('Test end');
