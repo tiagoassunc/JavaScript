@@ -410,7 +410,7 @@ console.log('1: Will getlocation');
 })(); */
 
 //// Running Promises in Parallel ////
-const get3Countries = async function (c1, c2, c3) {
+/* const get3Countries = async function (c1, c2, c3) {
   try {
     // const [data1] = await getJSON(
     //   `https://restcountries.eu/rest/v2/name/${c1}`
@@ -432,4 +432,62 @@ const get3Countries = async function (c1, c2, c3) {
     console.log(err);
   }
 };
-get3Countries('portugal', 'canada', 'tanzania');
+get3Countries('portugal', 'canada', 'tanzania'); */
+
+//// Other Promise Combinators: race, allSettled and any ////
+
+// Promise.race => the fullfield answer is the first response, fulfielld or reject
+(async function () {
+  const res = await Promise.race([
+    getJSON(`https://restcountries.eu/rest/v2/name/italy`),
+    getJSON(`https://restcountries.eu/rest/v2/name/egypt`),
+    getJSON(`https://restcountries.eu/rest/v2/name/mexico`),
+  ]);
+  console.log(res[0]);
+})();
+
+// Set a time to promise fulfilled else reject
+const timeout = function (s) {
+  return new Promise(function (_, reject) {
+    setTimeout(function () {
+      reject(new Error('Request took too long!'));
+    }, s * 1000);
+  });
+};
+Promise.race([
+  getJSON(`https://restcountries.eu/rest/v2/name/tanzania`),
+  timeout(5),
+])
+  .then(res => console.log(res[0]))
+  .catch(err => console.error(err));
+
+// Promise.allSettled => return all the results off all promises
+
+Promise.allSettled([
+  Promise.resolve('Success'),
+  Promise.resolve('Success'),
+  Promise.reject('Error'),
+  Promise.resolve('Success'),
+]).then(res => console.log(res));
+
+// !=
+
+Promise.all([
+  Promise.resolve('Success'),
+  Promise.resolve('Success'),
+  Promise.reject('Error'),
+  Promise.resolve('Success'),
+])
+  .then(res => console.log(res))
+  .catch(err => console.error(err));
+
+// Promise.any [ES2021] => return just the first fulfielld
+
+Promise.any([
+  Promise.resolve('Success 1'),
+  Promise.resolve('Success 2'),
+  Promise.reject('Error'),
+  Promise.resolve('Success 3'),
+])
+  .then(res => console.log(res))
+  .catch(err => console.error(err));
