@@ -1,4 +1,4 @@
-/* //// Importing module ////
+//// Importing module ////
 console.log('Importing module');
 
 // named import
@@ -15,11 +15,11 @@ console.log('Importing module');
 // import add, { addToCart, totalPrice as price, tq }  from './shoppingCart.js'; // avoid mix both
 // console.log(price);
 
-import add, { cart, shippingCost } from './shoppingCart.js';
+import add, { cart } from './shoppingCart.js';
 add('pizza', 2);
 add('bread', 5);
 add('apples', 3);
-console.log(cart); */
+console.log(cart);
 
 /* //// The Module Pattern ////
 const ShoppingCart2 = (function () {
@@ -67,7 +67,9 @@ const {addTocart} = require('./shoppingCart.js') */
 
 //// Introduction to NPM ////
 
-import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
+// import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
+// import cloneDeep from 'lodash-es';
+import cloneDeep from 'lodash';
 
 const state = {
   cart: [
@@ -83,3 +85,8 @@ state.user.loggedIn = false;
 
 console.log(stateClone);
 console.log(stateDeepClone);
+
+// Parcel state maintain
+if (module.hot) {
+  module.hot.accept();
+}

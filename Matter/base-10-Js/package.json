@@ -2,14 +2,18 @@
   "name": "base-10-js",
   "version": "1.0.0",
   "description": "",
-  "main": "clean.js",
+  "main": "./dist/index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "leaflet": "^1.7.1",
     "lodash-es": "^4.17.21"
+  },
+  "devDependencies": {
+    "parcel": "^2.0.0-beta.2"
   }
 }
